@@ -1,0 +1,476 @@
+/**
+ * This file is part of MyLib
+ * Copyright (C) 2016-2025 Denis ELBAZ
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/***************************************************/
+/* DEFINITIONS                                     */
+/***************************************************/
+.mform{
+	--required-color: red;
+	--required-char: "\2731"; /*'\0000a0•'*/
+	--fieldset-color: orange;
+}
+.mform_submit{
+	--submit-button-background: #d9d9d9;
+	--submit-button-background-hover: #cccccc;
+	--submit-button-textcolor: #000;
+	--submit-button-textcolor-hover: #000;
+	--submit-button-bordercolor: #bfbfbf;
+	--submit-button-bordercolor-hover: #b3b3b3;
+}
+/***************************************************/
+/* GENERALITES                                     */
+/***************************************************/
+.mform_messages_zone{
+	padding: 20px 0px;
+	text-align:left;
+}
+.mform_info{
+	color: #2266FF;
+}
+.mform_warning{
+	color: orange;
+}
+.mform_error{
+	color: red;
+}
+.mform_debug{
+	color: green;
+}
+
+.mform {
+	text-align:left;
+	border-collapse: collapse;
+}
+.mform * {
+	box-sizing: border-box;
+}
+.mform td {
+	padding: 7px 5px 2px 5px;
+	border-collapse: collapse;
+}
+td.mform_left {
+}
+td.mform_left.mform_regularized{
+	width :250px;
+	text-align: right;
+}
+.mform_label{
+}
+td.mform_right {
+}
+td.mform_right.mform_regularized{
+	width :450px;
+}
+tr.error{
+	box-shadow: 0 0 5px rgb(255, 0, 0) inset;
+}
+.mform_required:after{
+	content: var(--required-char);
+	color: var(--required-color);
+	margin-left: .2em;
+}
+/*.mform tr:nth-child(2n+1){
+	background-color: #FBFBFB;
+}
+.mform tr:nth-child(2n){
+	background-color: #FFFFFF;
+}*/
+/***************************************************/
+/* FIELDSETS                                       */
+/***************************************************/
+.mform_fieldset_header {
+	height: 30px;
+	vertical-align: bottom;
+	border-bottom:1px solid var(--fieldset-color);
+	color: var(--fieldset-color);
+	font-weight: bold;
+}
+.mform_fieldset_label{
+	float:left;
+	position:relative;
+	width:100%;
+}
+.mform_fieldset_row {
+	border-left:1px solid var(--fieldset-color);
+	border-right: 1px solid var(--fieldset-color);
+}
+.mform_fieldset_row td.mform_left{
+	border-left:1px solid var(--fieldset-color);
+}
+.mform_fieldset_row td.mform_right{
+	border-right: 1px solid var(--fieldset-color);
+}
+.mform_fieldset_footer {
+	height: 35px;
+	border-top:1px solid var(--fieldset-color);
+}
+/********************************************/
+/* INPUTS GENERAUX                          */
+/********************************************/
+.mform select, .mform textarea, .mform input {
+	border:1px solid #CCC;
+	border-radius: 4px;
+	margin-bottom: 6px;
+	vertical-align:middle;
+	padding-left: 5px;
+}
+.mform select[disabled], .mform textarea[disabled], .mform input[disabled] {
+	background-color: #eee;
+	cursor: not-allowed;
+	color: #777;
+}
+.mform select:focus, .mform textarea:focus, .mform input:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.mform select, .mform input[type="text"],
+.mform input[type="password"], .mform input[type="datetime"],
+.mform input[type="datetime-local"], .mform input[type="date"],
+.mform input[type="month"], .mform input[type="time"],
+.mform input[type="week"], .mform input[type="number"],
+.mform input[type="email"], .mform input[type="url"],
+.mform input[type="search"], .mform input[type="tel"],
+.mform input[type="color"]{
+	height:30px;
+}
+.mform select[size] {
+	height: auto;
+	box-sizing: border-box;
+}
+.mform label{
+	font-weight:normal;
+}
+.mform_multiselect_replacement{
+	overflow: auto;
+	border:1px solid #CCC;
+	border-radius: 4px;
+	margin-bottom: 6px;
+	vertical-align:middle;
+}
+.mform_multiselect_replacement > label{
+	display:block;
+	width:100%;
+	color: #555;
+}
+.mform_multiselect_replacement > label:hover{
+	background-color: #F0F2F6;
+}
+.mform_multiselect_replacement input[type="checkbox"]:checked + span{
+	font-weight: bold;
+	color: black;
+}
+/******************************************/
+/* CUSTOM FILE INPUT                      */
+/******************************************/
+.mform_custom_inputfile{
+	position: relative;
+	height: 30px;
+}
+.mform_custom_inputfile_fakefield {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	height: 30px;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	width: 100%;
+}
+.mform_custom_inputfile_file {
+	position: absolute;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+	top: 0px;
+	width: 100%;
+	height: 30px;
+}
+.mform_custom_inputfile_button{
+	position: absolute;
+	top: 50%;
+	transform: translate(0%,-50%);
+	right: 5px;
+	text-align: right;
+	z-index: 1;
+}
+/********************************************/
+/* TYPE COMPLEX                             */
+/********************************************/
+.mform_complex_table {
+	border:1px solid #CCC;
+	line-height: 70%;
+}
+.mform_complex_table tr:nth-child(2n){
+	background-color: #f8f8f8;
+}
+.mform_complex_table tr:nth-child(2n+1){
+	background-color: #eee;
+}
+.mform_complex_table_header{
+	line-height: 20px;
+	font-weight: bold;
+}
+/********************************************/
+/* DATE PICKER                             */
+/********************************************/
+.mform_datepicker {
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	background: #FFFFFF;
+	padding: 5px;
+	font-size:12px;
+	box-shadow:0 5px 15px -5px rgba(0,0,0,.506);
+	z-index:200;
+}
+.mform_datepicker td {
+	cursor:default;
+	text-align:center;
+	padding:2px;
+	border: 1px solid #dddddd;
+}
+.mform_datepicker td.mform_datepicker_active:hover {
+	color:white;
+	background:#888888;
+}
+.mform_datepicker td.mform_datepicker_active_today {
+	background: orange;
+}
+.mform_datepicker th {
+	background: #bbbbbb;
+	color: white;
+	width: 18px;
+	border: 1px solid #dddddd;
+	text-align:center;
+}
+.mform_datepicker option, .mform_datepicker select {
+	font-size:10px;
+	height:20px;
+}
+.mform_datepicker table {
+	background: #eeeeee;
+	border: none;
+	width:180px;
+	box-shadow:none;
+}
+.mform_datepicker #date_part{
+	float:left;
+	text-align:left;
+}
+.mform_datepicker #date_part select {
+	border:1px solid #CCC;
+	margin-bottom: 2px;
+}
+.mform_datepicker #time_part{
+	display:inline-block;
+	text-align:left;
+	padding-left: 5px;
+	padding-top: 22px;
+	line-height: 5px;
+	font-size: 35px;
+}
+.mform_datepicker #time_part input[type=number] {
+	font-size: 35px;
+	width:60px;
+	border:1px solid #CCC;
+}
+/********************************************/
+/* TIME PICKER                             */
+/********************************************/
+.mform_timepicker {
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	background: #FFFFFF;
+	padding: 5px;
+	font-size:15px;
+	box-shadow:0 5px 15px -5px rgba(0,0,0,.506);
+	z-index:200;
+}
+.mform_timepicker input[type=number] {
+	font-size: 20px;
+	width:50px;
+	border:1px solid #CCC;
+	text-align: center;
+	margin-bottom: 4px;
+}
+/*--------------------------------------------*/
+/* For both date and time pickers             */
+/*--------------------------------------------*/
+.select-free {
+	position:absolute;
+	z-index:200;
+	cursor:pointer;
+	overflow:hidden;
+}
+.select-free iframe {
+	display:none;
+	display/**/:block;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+	width:3000px;
+	height:3000px
+}
+/*****************************************/
+/* BOUTON SUBMIT                         */
+/*****************************************/
+.mform_submit {
+	background: var(--submit-button-background);
+	color: var(--submit-button-textcolor);
+	border: 1px solid var(--submit-button-bordercolor);
+	border-radius: 4px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	margin-top: 10px;
+}
+.mform_submit:hover, .mform_submit:active {
+	background: var(--submit-button-background-hover);
+	color: var(--submit-button-textcolor-hover);
+	border: 1px solid var(--submit-button-bordercolor-hover);
+	text-decoration: none;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px;
+}
+.mform_submit:focus {
+	background: var(--submit-button-background-hover);
+	outline: none;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px inset;
+}
+.mform_submit[disabled] {
+	background: #e6e6e6;
+	color: #999999;
+	border: 1px solid #e6e6e6;
+	cursor: not-allowed;
+}
+.mf-button[disabled]:hover {
+	box-shadow: none;
+}
+/********************************************/
+/* POPUP DE SOUMISSION DU FORMULAIRE        */
+/********************************************/
+#mform_wait {
+	display: none;
+	position:fixed;
+	width: 128px;
+	height: 128px;
+	background: url(wait_clock.gif) bottom center no-repeat;
+	z-index: 500;
+	top: calc(50% - 64px);
+	left: calc(50% - 64px);
+}
+/**************************************/
+/* Fenetres modales d'aide            */
+/**************************************/
+#mform_help_box {
+	position:absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	z-index:200;
+	background:#fff;
+	border-radius: 8px;
+}
+#mform_help_box-header {
+	display: block;
+	position: relative;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #BBB;
+	border-radius: 10px 10px 0 0;
+	background: #EEE;
+}
+#mform_help_box-close {
+	float:right;
+	cursor:pointer;
+	margin:3px 3px 0 0;
+	height:11px;
+	width:11px;
+	background:url(box_close.gif) no-repeat;
+}
+#mform_help_box-content {
+	display:block;
+	padding:5px;
+	color:#666666;
+	font-size:12px;
+}
+#mform_help_box-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index:100;
+	background-color: rgba(0,0,0,0.4);
+}
+body.mform_help_modal_open {
+	overflow: hidden;
+}
+/************************************/
+/* Boite captcha                    */
+/************************************/
+.mform_captcha_box{
+	text-align : center;
+	width:200px;
+	padding:5px;
+	border: 8px solid #DDD;
+	border-radius:2px;
+	background:#FFF;
+	font-size: 10px;
+	font-style: italic;
+}
+.mform_captcha_box > input[type=text]{
+	font-style: normal;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+/***********************************************/
+/* ADAPTATION PETITS ECRANS                    */
+/***********************************************/
+@media (max-width: 767px) {
+	.mform td {
+		display:block;
+	}
+	.mform_complex_table td{
+		display:table-cell;
+	}
+	.mform_fieldset_row td.mform_left{
+		border-left: none;
+	}
+	.mform_fieldset_row td.mform_right{
+		border-right: none;
+	}
+	.mform_label {
+		font-weight: bold;
+	}
+	.mform select[style], .mform textarea[style],
+	.mform input[style]:not(.mform_custom_inputfile_fakefield):not([name='mform_captcha']),
+	.mform_multiselect_replacement[style],
+	.mform_custom_inputfile[style],
+	.mform_complex_table{
+		width: 100% !important;
+	}
+}

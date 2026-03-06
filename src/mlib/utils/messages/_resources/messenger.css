@@ -1,0 +1,18 @@
+.mmessenger-zone {
+	padding-top: 10px;
+	width:90%;
+	text-align:left;
+	font-size:120%;
+}
+.mmessenger-warning-message {
+	color: #f08a31;
+}
+.mmessenger-error-message {
+	color: #c61c1c;
+}
+.mmessenger-info-message {
+	color: #378bb1;
+}
+.mmessenger-success-message {
+	color: #2d8f22;
+}

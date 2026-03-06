@@ -1,0 +1,294 @@
+/**
+ * This file is part of MyLib
+ * Copyright (C) 2016-2025 Denis ELBAZ
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/****************************************************/
+/** Style général de la console                  ****/
+/****************************************************/
+/*--------------------------------------------------*/
+/* Title                                            */
+/*--------------------------------------------------*/
+.mconsole_title{
+	color: #0E2D5F;
+	padding: 4px;
+	font-weight: bold;
+	border: 1px solid #95B8E7;
+	/*background: linear-gradient(to bottom,#EFF5FF 0,#E0ECFF 100%);*/
+	background-color: #EFF5FF;
+	text-align: left;
+	line-height : normal;
+}
+/*--------------------------------------------------*/
+/* Toolbar                                          */
+/*--------------------------------------------------*/
+.mconsole_toolbar{
+	padding: 7px;
+	border: 1px solid #DDDDDD;
+	border-bottom: none;
+	/*background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);*/
+	background-color: #EEEEEE;
+	text-align: right;
+	line-height : normal;
+}
+.mconsole_toolbar a{
+	padding: 4px 4px 4px 25px;
+	border: 1px solid #BBBBBB;
+	text-align: left;
+	border-radius: 3px;
+	text-decoration: none;
+	color: #777777;
+	margin-left: 5px;
+}
+.mconsole_toolbar a.add_btn{
+	background:url("tb_add_btn_16.png") no-repeat 5px center;
+}
+.mconsole_toolbar a.native_printable_btn{
+	background:url("tb_print_btn_16.png") no-repeat 5px center;
+}
+.mconsole_toolbar a.native_export_btn{
+	background:url("tb_spreadsheet_btn_16.png") no-repeat 5px center;
+}
+.mconsole_toolbar a.pdf_btn{
+	background:url("tb_pdf_btn_16.png") no-repeat 5px center;
+}
+.mconsole_toolbar a.export_btn{
+	background:url("tb_spreadsheet_btn_16.png") no-repeat 5px center;
+}
+.mconsole_toolbar a.spreadsheet_btn{
+	background:url("tb_spreadsheet_btn_16.png") no-repeat 5px center;
+}
+.mconsole_toolbar a.toolbar_btn{
+	padding-left: 4px;
+}
+.mconsole_toolbar a:hover{
+	border: 1px solid #95B8E7;
+	background-color: #EFF5FF;
+}
+
+/*--------------------------------------------------*/
+/* Table                                            */
+/*--------------------------------------------------*/
+.mconsole_table{
+	border-collapse: collapse;
+	border-spacing:1px 0px;
+	text-align:left;
+	font-family: arial, verdana, sans-serif;
+	font-size: 14px;
+	line-height : 30px;
+	/*table-layout: fixed;*/
+}
+.mconsole_table * {
+	box-sizing: border-box;
+}
+
+/*.mconsole_header_row{
+	font-weight: bold;
+	background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+}*/
+.mconsole_table th, .mconsole_table td {
+	padding-left:5px;
+	padding-right:5px;
+	border : 1px solid #DDDDDD;
+	/*Permet d'avoir des ... si une max-width est fixée sur la cellule*/
+	/*Ne change rien sinon*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background-color: inherit;
+}
+.mconsole_table td:hover {
+	overflow: visible;
+}
+.mconsole_table td > span.mconsole_possible_overflow {
+	padding:5px 5px 5px 0px;
+	background-color: inherit;
+}
+.mconsole_table td:hover > span.mconsole_possible_overflow {
+	position: relative;
+	z-index : 1;
+}
+
+.mconsole_table td.expanded_row {
+	padding:10px 10px 20px 30px;	
+}
+.mconsole_table tr:nth-child(2n+1 of .mconsole_row){
+	background-color: #F9F9F9;
+}
+.mconsole_table tr:nth-child(2n of .mconsole_row){
+	background-color: #FFFFFF;
+}
+.mconsole_table th{
+	font-weight: bold;
+	/*background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);*/
+	background-color: #EEEEEE;
+ }
+
+/*.mconsole_footer_row {
+	border-top: 3px solid #999;
+	border-bottom: 3px solid #999;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+}*/
+.mconsole_footer_row td.nodata{
+	background-color: #666;
+}
+.mconsole_footer_row td{
+	font-weight: bold;
+	background-color: #999;
+	color: white;
+}
+
+/* Les liens dans la console*/
+.mconsole_table td:not(.expanded_row) a{
+	text-decoration: none;
+	color: #4444FF;
+}
+.mconsole_table td:not(.expanded_row) a.external{
+	color: #0505FF;
+}
+.mconsole_table td:not(.expanded_row) a.external:after{
+	content: "\0000a0[\2197]";
+}
+.mconsole_table td:not(.expanded_row) a img {
+	border: none;
+}
+
+/* Pas certain que ce soit nécessaire
+.mconsole_table td div{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}*/
+
+.mconsole_printable_link {
+	text-decoration: none;
+	position:relative;
+	z-index:100;
+	background:url("printer.png") no-repeat center bottom;
+	padding-bottom:30px;
+	color:#FF7400;
+	font-weight: bold;
+}
+
+.mconsole_export_link {
+	text-decoration: none;
+	position:relative;
+	z-index:100;
+	background:url("spreadsheet.png") no-repeat center bottom;
+	padding-bottom:30px;
+	color:#2C8008;
+	font-weight: bold;
+}
+
+.mconsole_sort_button{
+	float : right;
+	padding-left: 5px;
+}
+
+
+/****************************************************/
+/** Style des message (non utilisé)              ****/
+/****************************************************/
+.mconsole_info{
+	color: #2266FF;
+}
+
+.mconsole_error{
+	color: red;
+}
+
+.mconsole_warning{
+	font-weight: bold;
+	color: orange;
+}
+
+
+/****************************************************/
+/** Style des fenetres modales de détails        ****/
+/****************************************************/
+#mconsole_details_box {
+	position:absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	z-index:200;
+	background:#fff;
+	/*border:1px solid #AAA;*/
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+}
+#mconsole_details_box-header {
+	display: block;
+	position: relative;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #BBB;
+	border-radius: 10px 10px 0 0;
+	background: #EEE;
+}
+#mconsole_details_box-close {
+	float:right;
+	cursor:pointer;
+	margin:3px 3px 0 0;
+	height:11px;
+	width:11px;
+	background:url(box_close.gif) no-repeat;
+}
+#mconsole_details_box-content {
+	display:block;
+	padding:5px;
+	color:#666666;
+	font-size:12px;
+}
+#mconsole_details_box-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index:1000;
+	background-color: rgba(0,0,0,0.4);
+}
+body.mconsole_details_modal_open {
+    overflow: hidden;
+}
+/*------------------------------------------------*/
+/* Style du contenu des boites modales de détail  */
+/* lorqsqu'on est en méthode client               */
+/*------------------------------------------------*/
+#mconsole_details_box-content hr{
+	color: orange;
+	background-color: orange;
+	height: 2px;
+	border: 0;
+}
+#mconsole_details_box-content .details_infos{
+	font-size: 10px;
+}
+
+
+@media (max-width: 991px) {
+	.mconsole_responsive_2 {
+		display:none;
+	}
+}
+@media (max-width: 767px) {
+	.mconsole_responsive_2, .mconsole_responsive_1{
+		display:none;
+	}
+}

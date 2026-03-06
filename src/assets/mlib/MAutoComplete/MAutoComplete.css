@@ -1,0 +1,89 @@
+/**
+ * This file is part of MyLib
+ * Copyright (C) 2016-2025 Denis ELBAZ
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+.mautocomplete_wrapper{
+	height:35px;
+}
+.mautocomplete_search{
+	display: flex;
+}
+.mautocomplete_search > input {
+	display: block;
+	height: 34px;
+	font-size: 14px;
+	padding: 6px 12px;
+	color: #555555;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px 0 0 4px;
+	border-right: none;
+	flex:1;
+}
+.mautocomplete_search > input:focus {
+	border-color: #66afe9;
+	outline: 0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.mautocomplete_search > input.no_button {
+	border: 1px solid #cccccc;
+	border-radius: 4px !important;
+}
+.mautocomplete_search > button {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	background-color: #e6e6e6;
+	color: #333;
+	border: 1px solid #ccc;;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 14px;
+	border-radius: 0 4px 4px 0;
+	border-left: none;
+}
+.mautocomplete_search > button:hover {
+	background-color: #eeeeee;
+}
+
+.mautocomplete-suggestions{
+	padding: 5px 0;
+	width:100%;
+	display:block;
+	text-align: left;
+	background-color: #fff;
+	border: 1px solid #ccc;;
+	position: relative;
+	z-index: 1;
+	max-height: 200px;
+	overflow-y: auto;
+}
+.mautocomplete-suggestions li{
+	list-style-type:none;
+	color: #555;
+	padding-left: 5px;
+}
+.mautocomplete-suggestions li:hover,
+.mautocomplete-suggestions li:focus,
+.mautocomplete-suggestions li.active{
+	background-color: #4499f8;
+	color: #fff;
+	cursor:pointer;
+}

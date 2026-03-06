@@ -1,0 +1,57 @@
+.mtree {
+	padding-left: 50px;
+	color: #084BB2;
+}
+
+.mtree ul#level_0 > li{
+	margin: 0px;
+	padding: 0px;
+	background: none;
+	/*font-weight:bold;*/
+}
+
+.mtree ul, .mtree li {
+	text-align: left;
+	padding-left: 25px;
+	list-style-type: none;
+	list-style-image: none;
+}
+
+.mtree li {
+	position: relative;
+	background: url("line.gif") repeat-y 0px 0px;
+}
+
+.mtree li.join {
+	background: url("join.gif") no-repeat;
+	background-position: 0 -2px;
+}
+
+.mtree li.last {
+	background: url("joinbottom.gif") no-repeat;
+	background-position: 0 -2px;
+}
+
+.mtree li span.closed {
+	position: absolute;
+	left : 0px;
+	width:20px;
+	height: 20px;
+	background: url("plus.gif");
+	background-position: 0 -2px;
+}
+
+.mtree li span.opened {
+	position: absolute;
+	left : 0px;
+	width:20px;
+	height: 20px;
+	background: url("minus.gif");
+	background-position: 0 -2px;
+}
+
+.mtree a {
+	color: #084BB2;
+	text-decoration:none;
+	font-weight:bold;
+}

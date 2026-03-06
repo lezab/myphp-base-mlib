@@ -1,0 +1,20 @@
+.mtooltiped {
+	cursor: help;
+}
+.mtooltip{
+	visibility: hidden;
+	position: absolute;
+	z-index: 100;
+	padding: 5px;
+	border: 2px solid #9090ff;
+	background: #e0e0e0;
+	color: #4444FF;
+	font-weight: normal;
+	border-radius: 5px; 
+	font-size: smaller;
+	text-align: left;
+	min-width: 100px;
+	max-width: 300px;
+	line-height: initial;
+	white-space: normal;
+}

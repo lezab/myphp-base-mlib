@@ -1,0 +1,3 @@
+Des détails sur l'entrée<br>
+Des détails sur l'entrée<br>
+On pourrait aussi afficher une autre console imbriquée<br>

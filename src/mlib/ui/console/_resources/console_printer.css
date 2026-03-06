@@ -1,0 +1,92 @@
+/****************************************************/
+/** Style général de la console                  ****/
+/****************************************************/
+/*--------------------------------------------------*/
+/* Title                                            */
+/*--------------------------------------------------*/
+.mconsole_title{
+	color: #0E2D5F;
+	padding: 4px;
+	font-weight: bold;
+	border: 1px solid #95B8E7;
+	background-color: #EFF5FF;
+	text-align: left;
+	line-height : normal;
+}
+
+/*--------------------------------------------------*/
+/* Table                                            */
+/*--------------------------------------------------*/
+.mconsole_table{
+	border-collapse: collapse;
+	border-spacing:1px 0px;
+	text-align:left;
+	font-family: arial, verdana, sans-serif;
+	font-size: 14px;
+	line-height : 30px;
+}
+.mconsole_table * {
+	box-sizing: border-box;
+}
+
+.mconsole_table th, .mconsole_table td {
+	padding-left:5px;
+	padding-right:5px;
+	border : 1px solid #DDDDDD;
+}
+.mconsole_table td.expanded_row {
+	padding:10px 10px 20px 30px;	
+}
+.mconsole_table tr:nth-child(2n+1){
+	background-color: #F9F9F9;
+}
+.mconsole_table tr:nth-child(2n){
+	background-color: #FFFFFF;
+}
+.mconsole_table th{
+	font-weight: bold;
+	/*background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);*/
+	background-color: #EEEEEE;
+ }
+
+
+/* Les liens dans la console*/
+.mconsole_table td:not(.expanded_row) a{
+	text-decoration: none;
+	color: #4444FF;
+}
+.mconsole_table td:not(.expanded_row) a.external{
+	color: #0505FF;
+}
+.mconsole_table td:not(.expanded_row) a.external:after{
+	content: "\0000a0[\2197]";
+}
+.mconsole_table td:not(.expanded_row) a img {
+	border: none;
+}
+
+.mconsole_table td div{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.mconsole_footer_row td.nodata{
+	background-color: #666;
+}
+.mconsole_footer_row td{
+	font-weight: bold;
+	background-color: #999;
+	color: white;
+}
+
+@media (max-width: 991px) {
+	.mconsole_responsive_2 {
+		display:none;
+	}
+}
+@media (max-width: 767px) {
+	.mconsole_responsive_2, .mconsole_responsive_1{
+		display:none;
+	}
+}

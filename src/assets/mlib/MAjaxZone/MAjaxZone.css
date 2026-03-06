@@ -1,0 +1,44 @@
+/**
+ * This file is part of MyLib
+ * Copyright (C) 2016-2025 Denis ELBAZ
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+.majax_zone{
+	margin-top : 5px;
+	padding : 5px 5px;
+	border : 1px solid #dddddd;
+	display: none;
+}
+
+.majax_zone_button {
+	background-color: #ef7f05;
+	color: #fff;
+	margin-top : 5px;
+	padding : 3px 10px;
+	cursor:pointer;
+	/*transition:background-color .2s;*/
+	transition: all .3s ease-out;
+	border: none;
+	border-radius: 2px;
+	line-height: 36px;
+	text-align: center;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	
+}
+.majax_zone_button:hover {
+	filter: brightness(1.25);
+	box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+}
+
